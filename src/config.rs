@@ -25,6 +25,7 @@ pub struct SenseiConfig {
     pub api_port: u16,
     pub port_range_min: u16,
     pub port_range_max: u16,
+    pub root_port: i32,
     pub database_url: String,
 }
 
@@ -42,6 +43,7 @@ impl Default for SenseiConfig {
             api_port: 5401,
             port_range_min: 10000,
             port_range_max: 65535,
+            root_port: 9735,
             database_url: String::from("sensei.db"),
         }
     }

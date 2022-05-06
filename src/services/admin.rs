@@ -389,7 +389,7 @@ impl AdminService {
     ) -> Result<(node::Model, Macaroon), crate::error::Error> {
         let listen_addr = public_ip::addr().await.unwrap().to_string();
         let listen_port: i32 = match role {
-            node::NodeRole::Root => 9735,
+            node::NodeRole::Root => self.config.root_port,
             node::NodeRole::Default => {
                 let mut port = self.config.port_range_min;
                 let mut port_used_by_system = !portpicker::is_free(port);

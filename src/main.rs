@@ -102,6 +102,8 @@ struct SenseiArgs {
     port_range_max: Option<u16>,
     #[clap(long, env = "API_PORT")]
     api_port: Option<u16>,
+    #[clap(long, env = "ROOT_PORT")]
+    root_port: Option<i32>,
     #[clap(long, env = "DATABASE_URL")]
     database_url: Option<String>,
 }
@@ -158,6 +160,9 @@ async fn main() {
     }
     if let Some(api_port) = args.api_port {
         config.api_port = api_port;
+    }
+    if let Some(root_port) = args.root_port {
+        config.root_port = root_port;
     }
     if let Some(database_url) = args.database_url {
         config.database_url = database_url;
